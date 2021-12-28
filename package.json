@@ -82,7 +82,7 @@
               "entryPoints": [
                 {
                   "html": "./public/index.html",
-                  "js": "./src/index.tsx",
+                  "js": "./src/App.tsx",
                   "name": "main_window",
                   "preload": {
                     "js": "./electron/bridge.ts"
