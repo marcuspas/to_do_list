@@ -1,7 +1,7 @@
 export const styles = {
     todo_item: {
-        position: "relative",
-        left: "24%",
+        // position: "relative",
+        // left: "24%",
         margin: "10px",
         height: "50px"
     },
