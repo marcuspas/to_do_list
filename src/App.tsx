@@ -1,11 +1,11 @@
 import ReactDOM from "react-dom";
-import { TodoList } from "./components/TodoList";
+import { TodoList } from "./components/todo_list";
 import { GlobalStyle } from "./styles/GlobalStyle";
 
 export const App = () => {
 
   return (
-    <div>
+    <div className="card">
       <GlobalStyle />
       <TodoList />
     </div>

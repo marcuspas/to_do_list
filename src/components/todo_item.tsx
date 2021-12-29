@@ -1,5 +1,6 @@
+import { Container } from 'react-bootstrap';
 import injectSheet from 'react-jss'
-import { styles } from "./styles";
+import { styles } from '../styles/GlobalStyle';
 
 export interface Todo {
   text: string,
@@ -29,15 +30,23 @@ export const TodoItem = injectSheet(styles)(({ classes, todo, todos, set_todos }
   }
 
   return (
-    <div className={`${classes.todo_item} ${todo.is_checked ? classes.section_checked : classes.section}`}>
-      <div>{todo.text}</div>
+    <Container className={classes.container}>
+      <input
+        value={todo.text}
+        type="text"
+        className={`${classes.todo_item} ${classes.section}`}
+        style={todo.is_checked
+          ? { color: "#bebebe", textDecorationLine: "line-through" }
+          : { color: "#000000", textDecorationLine: "none" }
+        }
+        disabled
+      />
       <button onClick={handle_check} className={`${classes.button} ${classes.button_checkbox}`}>
         ✓
       </button>
       <button onClick={delete_todo} className={`${classes.button} ${classes.button_delete}`}>
         X
       </button>
-    </div>
+    </Container>
   )
-
 })
