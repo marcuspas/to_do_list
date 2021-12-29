@@ -1,10 +1,14 @@
 import ReactDOM from "react-dom";
+import { TodoList } from "./components/TodoList";
+import { GlobalStyle } from "./styles/GlobalStyle";
 
 export const App = () => {
+
   return (
-    <>
-      Hello
-    </>
+    <div>
+      <GlobalStyle />
+      <TodoList />
+    </div>
   )
 }
 
