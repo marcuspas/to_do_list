@@ -1,15 +1,9 @@
 import { useState } from 'react';
 import { Container, Row } from 'react-bootstrap';
 import { TodoForm } from './todo_form';
-import injectSheet from 'react-jss'
-import { styles } from '../styles/GlobalStyle';
 import { Todo, TodoItem } from './todo_item';
 
-interface TodoListProps {
-    classes?: any
-}
-
-export const TodoList = injectSheet(styles)(({ classes }: TodoListProps) => {
+export const TodoList = () => {
 
     const [todos, set_todos] = useState<Array<Todo>>([])
 
@@ -19,7 +13,7 @@ export const TodoList = injectSheet(styles)(({ classes }: TodoListProps) => {
             <TodoForm todos={todos} set_todos={set_todos} />
             {todos.map((todo: Todo, i: number) => (
                 <Row
-                    key={i}>
+                    key={`todo-${i}`}>
                     <TodoItem
                         todo={todo}
                         todos={todos}
@@ -29,4 +23,4 @@ export const TodoList = injectSheet(styles)(({ classes }: TodoListProps) => {
             ))}
         </Container>
     )
-})
+}

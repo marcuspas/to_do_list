@@ -1,16 +1,13 @@
 import React, { useState } from 'react';
 import { Container } from 'react-bootstrap';
-import injectSheet from 'react-jss'
-import { styles } from '../styles/GlobalStyle';
 import { Todo } from './todo_item';
 
 interface TodoFormProps {
-    classes?: any
     todos: Array<Todo>
     set_todos: Function
 }
 
-export const TodoForm = injectSheet(styles)(({ classes, todos, set_todos }: TodoFormProps) => {
+export const TodoForm = ({ todos, set_todos }: TodoFormProps) => {
 
     const [input_text, set_input_text] = useState("")
 
@@ -35,21 +32,24 @@ export const TodoForm = injectSheet(styles)(({ classes, todos, set_todos }: Todo
     }
 
     return (
-        <Container className={classes.container}>
+        <Container className="custom-container">
             <input
                 value={input_text}
                 onChange={(event: React.ChangeEvent<HTMLInputElement>) => set_input_text(event.target.value)}
                 type="text"
                 placeholder="What's the plan for today?"
-                className={classes.section}
+                className="section"
                 maxLength={20}
+                onKeyPress={(event: React.KeyboardEvent<HTMLInputElement>) => {
+                    if (event.key === "Enter") add_todo()
+                }}
             />
             <button
                 onClick={add_todo}
-                className={`${classes.button} ${classes.button_add}`}
+                className="btn btn--add"
             >
                 New
             </button>
         </Container>
     )
-})
+}

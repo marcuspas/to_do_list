@@ -1,6 +1,4 @@
 import { Container } from 'react-bootstrap';
-import injectSheet from 'react-jss'
-import { styles } from '../styles/GlobalStyle';
 
 export interface Todo {
   text: string,
@@ -8,13 +6,12 @@ export interface Todo {
 }
 
 interface TodoItemProps {
-  classes?: any
   todo: Todo
   todos: Array<Todo>
   set_todos: Function
 }
 
-export const TodoItem = injectSheet(styles)(({ classes, todo, todos, set_todos }: TodoItemProps) => {
+export const TodoItem = ({ todo, todos, set_todos }: TodoItemProps) => {
 
   const handle_check = () => {
     const new_todos: Array<Todo> = todos.map((list_todo: Todo) => {
@@ -30,23 +27,23 @@ export const TodoItem = injectSheet(styles)(({ classes, todo, todos, set_todos }
   }
 
   return (
-    <Container className={classes.container}>
+    <Container className="custom-container">
       <input
         value={todo.text}
         type="text"
-        className={`${classes.todo_item} ${classes.section}`}
+        className="todo-item section"
         style={todo.is_checked
           ? { color: "#bebebe", textDecorationLine: "line-through" }
           : { color: "#000000", textDecorationLine: "none" }
         }
         disabled
       />
-      <button onClick={handle_check} className={`${classes.button} ${classes.button_checkbox}`}>
+      <button onClick={handle_check} className="btn btn--checkbox">
         ✓
       </button>
-      <button onClick={delete_todo} className={`${classes.button} ${classes.button_delete}`}>
+      <button onClick={delete_todo} className="btn btn--delete">
         X
       </button>
     </Container>
   )
-})
+}
