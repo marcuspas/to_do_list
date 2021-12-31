@@ -10,11 +10,11 @@ declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string
 //     ? process.resourcesPath
 //     : app.getAppPath()
 
-function createWindow () {
+function createWindow() {
   mainWindow = new BrowserWindow({
-    // icon: path.join(assetsPath, 'assets', 'icon.png'),
-    width: 1100,
-    height: 700,
+    //icon: "../assets/icon",
+    width: 500,
+    height: 600,
     backgroundColor: '#191622',
     webPreferences: {
       nodeIntegration: false,
@@ -30,7 +30,7 @@ function createWindow () {
   })
 }
 
-async function registerListeners () {
+async function registerListeners() {
   /**
    * This comes from bridge integration, check bridge.ts
    */
