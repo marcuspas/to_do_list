@@ -8,11 +8,14 @@ export interface Todo {
 interface TodoItemProps {
   todo: Todo
   todos: Array<Todo>
-  set_todos: Function
+  set_todos: React.Dispatch<React.SetStateAction<Todo[]>>
 }
 
 export const TodoItem = ({ todo, todos, set_todos }: TodoItemProps) => {
 
+  /**
+   * Checks the todo when the check button is pressed
+   */
   const handle_check = () => {
     const new_todos: Array<Todo> = todos.map((list_todo: Todo) => {
       return list_todo.text === todo.text
@@ -22,6 +25,9 @@ export const TodoItem = ({ todo, todos, set_todos }: TodoItemProps) => {
     set_todos(new_todos)
   }
 
+  /**
+   * Deletes the todo when the delet button is pressed
+   */
   const delete_todo = () => {
     set_todos(todos.filter((list_todo: Todo) => list_todo.text !== todo.text))
   }

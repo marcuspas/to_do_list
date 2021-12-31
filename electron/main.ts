@@ -12,15 +12,17 @@ declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string
 
 function createWindow() {
   mainWindow = new BrowserWindow({
-    //icon: "../assets/icon",
     width: 500,
     height: 600,
+    minWidth: 500,
+    minHeight: 500,
     backgroundColor: '#191622',
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,
       preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY
-    }
+    },
+    titleBarStyle: "hidden"
   })
 
   mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY)
