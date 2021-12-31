@@ -1,22 +1,23 @@
-## Installation
+# To Do List Desktop Application
 
-Use a package manager of your choice (npm, yarn, etc.) in order to install all dependencies
+This is a desktop application I developed to familiarize myself with TypeScript and ReactJS
+
+## Installation, Usage, and Packaging
+
+Make sure you have a package manager installed (yarn or npm). In order to install all the dependencies, 
+run
 
 ```bash
 yarn
 ```
 
-## Usage
-
-Just run `start` script.
+To use the app, run 
 
 ```bash
 yarn start
 ```
 
-## Packaging
-
-To generate the project package based on the OS you're running on, just run:
+To package the app, run
 
 ```bash
 yarn package
